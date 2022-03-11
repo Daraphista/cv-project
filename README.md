@@ -6,6 +6,7 @@ This was a project assigned to me by The Odin Project.
 
 - React
 - React Icons
+- Tailwindcss
 
 ## TODO
 
@@ -19,21 +20,26 @@ This was a project assigned to me by The Odin Project.
     - [x] Phone number
     - [x] Email
     - [x] Description
-  - [ ] Experience (Removable and can Add more)
-    - [ ] Position
-    - [ ] Company
-    - [ ] City
-    - [ ] From 
-    - [ ] To
-  - [ ] Education (Removable and can Add more)
-    - [ ] University name
-    - [ ] City
-    - [ ] Degree
-    - [ ] Subject
-    - [ ] From
-    - [ ] To
+  - [x] Experience (Removable and can Add more)
+    - [x] Position
+    - [x] Company
+    - [x] City
+    - [x] From 
+    - [x] To
+    - [x] Delete
+    - [x] Add
+    - [x] Functionality to add and remove more
+  - [x] Education (Removable and can Add more)
+    - [x] University name
+    - [x] City
+    - [x] Degree
+    - [x] Subject
+    - [x] From
+    - [x] To
+    - [x] Delete
+    - [x] Add
+    - [x] Functionality to add and remove more
 - ### [ ] CV Preview
-
   - [ ] Heading
   - [ ] Main
   - [ ] Side Info
