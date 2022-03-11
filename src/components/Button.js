@@ -9,7 +9,7 @@ class AddButton extends Component {
     const { type } = this.props;
 
     return (
-      <button className="btn primary" type="button">{type}</button>
+      <button className="btn primary" type="button" onClick={this.props.handleClick}>{type}</button>
     )
   }
 }
