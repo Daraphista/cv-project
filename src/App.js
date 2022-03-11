@@ -1,12 +1,11 @@
 import { Component } from "react";
 import { AiOutlineUpload } from "react-icons/ai"
+import Button from "./components/Button";
 
 class App extends Component {
   constructor (props) {
     super (props);
-  }
 
-  handleChange(event) {
   }
 
   render () {
@@ -52,10 +51,69 @@ class App extends Component {
               </label>
             </section>
 
-            <section>
+            <section className="experience">
               <h2>Experience</h2>
+              <section>
+                <label>
+                  <input className="peer" type="text"></input>
+                  <span className="peer-focus:invisible">Position</span>
+                </label>
+                <label>
+                  <input className="peer" type="text"></input>
+                  <span className="peer-focus:invisible">Company</span>
+                </label>
+                <label>
+                  <input className="peer" type="text"></input>
+                  <span className="peer-focus:invisible">City</span>
+                </label>
+                <label>
+                  <input className="peer" type="text"></input>
+                  <span className="peer-focus:invisible">From</span>
+                </label>
+                <label>
+                  <input className="peer" type="text"></input>
+                  <span className="peer-focus:invisible">To</span>
+                </label>
+              </section>
+              <Button type="Add" /> 
+              <Button type="Delete" /> 
+            </section>
+
+            <section class="education">
+              <section>
+                <h2>Education</h2>
+                <label>
+                  <input className="peer" type="text"></input>
+                  <span className="peer-focus:invisible">University name</span>
+                </label>
+                <label>
+                  <input className="peer" type="text"></input>
+                  <span className="peer-focus:invisible">City</span>
+                </label>
+                <label>
+                  <input className="peer" type="text"></input>
+                  <span className="peer-focus:invisible">Degree</span>
+                </label>
+                <label>
+                  <input className="peer" type="text"></input>
+                  <span className="peer-focus:invisible">Subject</span>
+                </label>
+                <label>
+                  <input className="peer" type="text"></input>
+                  <span className="peer-focus:invisible">From</span>
+                </label>
+                <label>
+                  <input className="peer" type="text"></input>
+                  <span className="peer-focus:invisible">To</span>
+                </label>
+              </section>
+              <Button type="Add" />
+              <Button type="Delete" />
             </section>
           
+            <section>
+
+            </section>
           </form>
         </div>
 
