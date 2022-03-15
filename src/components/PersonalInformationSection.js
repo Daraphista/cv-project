@@ -48,10 +48,6 @@ class PersonalInformationSection extends Component {
           <textarea className="resize-none peer h-[100%]" id="description" onChange={this.handleChange} required></textarea>
           <span className="peer-valid:invisible top-3.5">Description</span>
         </label>
-        <label htmlFor="photo" className="bg-gray-100 rounded cursor-pointer hover:shadow-md transition-shadow active:shadow-none">
-          <span className="flex items-center gap-1">Photo<AiOutlineUpload /></span>
-          <input className="invisible" type="file" id="photo" required></input>
-        </label>
       </section>
     )
   }
