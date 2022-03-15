@@ -165,10 +165,6 @@ class App extends Component {
               })}
               <Button type="Add" handleClick={this.handleAddEducation}/>
             </section>
-          
-            <section>
-
-            </section>
 
           </form>
         </div>
