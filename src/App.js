@@ -3,6 +3,7 @@ import Button from "./components/Button";
 import EducationSection from "./components/EducationSection";
 import ExperienceSection from "./components/ExperienceSection";
 import PersonalInformationSection from "./components/PersonalInformationSection";
+import PreviewSection from "./components/PreviewSection";
 import uniqid from "uniqid";
 
 class App extends Component {
@@ -10,6 +11,18 @@ class App extends Component {
     super (props);
 
     this.state = {
+      personalInformation: [ // could've used an object, still used array for compatibility with the handleChange function
+        {
+          firstName: '',
+          lastName: '',
+          title: '',
+          address: '',
+          phoneNumber: '',
+          email: '',
+          description: '',
+          id: uniqid(),
+        },
+      ],
       experiences: [
         {
           position: '',
@@ -39,7 +52,7 @@ class App extends Component {
     this.handleAddExperience = this.handleAddExperience.bind(this);
     this.handleAddEducation = this.handleAddEducation.bind(this);
 
-    this.handleChangeExperience = this.handleChangeExperience.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleDeleteExperience(selectedExperience) {
@@ -88,7 +101,7 @@ class App extends Component {
     })
   }
 
-  handleChangeExperience(input, property, index, arr) {
+  handleChange(input, property, index, arr) {
     // making shallow copies of the array and item
     let shallowArr = [...this.state[arr]];
     let shallowItem = {...shallowArr[index]};
@@ -102,15 +115,26 @@ class App extends Component {
   }
 
   render () {
+
+    const { personalInformation } = this.state;
+
     return (
-      <div className="bg-gray-200 p-8">
+      <div className="bg-gray-200 p-8 flex">
 
         <div className="w-[50%] flex justify-center">
           <form className="bg-white flex flex-col items-center w-[90%] rounded shadow-lg gap-6">
 
             <section>
               <h2>Personal Information</h2>
-              <PersonalInformationSection />
+              {this.state.personalInformation.map((personalInfo) => {
+                return <PersonalInformationSection 
+                  array="personalInformation"
+                  index={this.state.personalInformation.indexOf(personalInfo)}
+                  handleChange={this.handleChange}
+                  personalInfo={personalInfo}
+                  id={personalInfo.id}
+                />
+              })}
             </section>
 
             <section className="experience">
@@ -120,7 +144,7 @@ class App extends Component {
                   array="experiences" 
                   index={this.state.experiences.indexOf(experience)} 
                   handleDelete={this.handleDeleteExperience} 
-                  handleChange={this.handleChangeExperience} 
+                  handleChange={this.handleChange} 
                   experience={experience}
                   id={experience.id}
                 />
@@ -135,7 +159,7 @@ class App extends Component {
                   array="educations"
                   index={this.state.educations.indexOf(education)}
                   handleDelete={this.handleDeleteEducation}
-                  handleChange={this.handleChangeExperience}
+                  handleChange={this.handleChange}
                   education={education}
                 />
               })}
@@ -147,6 +171,43 @@ class App extends Component {
             </section>
 
           </form>
+        </div>
+
+        <div className="w-[50%] flex justify-center">
+          <div className="bg-white w-[90%] grid grid-cols-[repeat(10,_minmax(0,_1fr))] grid-rows-6 shadow-lg">
+            <div className="bg-blue-800 row-[1/2] col-[1/11] flex flex-col justify-center p-6 gap-2">
+              <h1 className="text-white bold text-5xl">{`${personalInformation[0].firstName} ${personalInformation[0].lastName}`}</h1>
+              <h2 className="text-white">{`${personalInformation[0].title}`}</h2>
+            </div>
+
+            <div className="bg-gray-100 row-[2/7] col-[8/11] p-6">
+              <h2 className="text-blue-800">Personal Details</h2>
+              <p>{`${personalInformation[0].address}`}</p>
+              <p>{`${personalInformation[0].phoneNumber}`}</p>
+              <p>{`${personalInformation[0].email}`}</p>
+            </div>
+
+            <div className="flex flex-col row-[2/7] col-[1/8] gap-3 p-6">
+              <section>
+                <h2 className="text-blue-800">Description</h2>
+                <p className="italic">{`${personalInformation[0].description}`}</p>
+              </section>
+
+              <section>
+                <h2 className="text-blue-800">Experience</h2>
+                {this.state.experiences.map((experience) => {
+                  return <PreviewSection isExperience={true} experience={experience} />
+                })}
+              </section>
+
+              <section>
+                <h2 className="text-blue-800">Education</h2>
+                {this.state.educations.map((education) => {
+                  return <PreviewSection isEducation={true} education={education} />
+                })}
+              </section>
+            </div>
+          </div>
         </div>
 
       </div>
