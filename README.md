@@ -40,8 +40,14 @@ This was a project assigned to me by The Odin Project.
     - [x] Add
     - [x] Functionality to add and remove more
 - ### [ ] CV Preview
-  - [ ] Heading
-  - [ ] Main
-  - [ ] Side Info
+  - [x] Heading
+    - [x] First Name
+    - [x] Last Name
+    - [x] Title
+  - [x] Side Info
+    - [x] Address
+    - [x] Phone Number
+    - [x] Email
+  - [x] Main
   
 
