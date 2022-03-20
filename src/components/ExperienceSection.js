@@ -1,56 +1,46 @@
-import { Component } from "react";
+import React from "react";
 import Button from "./Button";
 
-class ExperienceSection extends Component {
-  constructor (props) {
-    super(props);
-
-    this.handleDelete = this.handleDelete.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+const ExperienceSection = (props) => {
+  const handleDelete = () => {
+    props.handleDelete(props.experience);
   }
-
-  handleDelete() {
-    this.props.handleDelete(this.props.experience)
-  }
-
-  handleChange(e) {
-    this.props.handleChange(
-      e.target.value, 
-      e.target.id, 
-      this.props.index, 
-      this.props.array
+  const handleChange = (e) => {
+    props.handleChange(
+      e.target.value,
+      e.target.id,
+      props.index,
+      props.array,
     )
   }
 
-  render () {
-    const { experience } = this.props
+  const { experience } = props;
 
-    return (
+  return (
     <section>
       <label htmlFor="position">
-        <input className="peer" type="text" id="position" onChange={this.handleChange} value={experience.position} required></input>
+        <input className="peer" type="text" id="position" onChange={handleChange} value={experience.position} required></input>
         <span className="peer-valid:invisible">Position</span>
       </label>
       <label htmlFor="company">
-        <input className="peer" type="text" id="company" onChange={this.handleChange} value={experience.company} required></input>
+        <input className="peer" type="text" id="company" onChange={handleChange} value={experience.company} required></input>
         <span className="peer-valid:invisible">Company</span>
       </label>
       <label htmlFor="city">
-        <input className="peer" type="text" id="city" onChange={this.handleChange} value={experience.city} required></input>
+        <input className="peer" type="text" id="city" onChange={handleChange} value={experience.city} required></input>
         <span className="peer-valid:invisible">City</span>
       </label>
       <label htmlFor="from">
-        <input className="peer" type="text" id="from" onChange={this.handleChange} value={experience.from} required></input>
+        <input className="peer" type="text" id="from" onChange={handleChange} value={experience.from} required></input>
         <span className="peer-valid:invisible">From</span>
       </label>
       <label htmlFor="to">
-        <input className="peer" type="text" id="to" onChange={this.handleChange} value={experience.to} required></input>
+        <input className="peer" type="text" id="to" onChange={handleChange} value={experience.to} required></input>
         <span className="peer-valid:invisible">To</span>
       </label>
-      <Button type="Delete" handleClick={this.handleDelete} /> 
+      <Button type="Delete" handleClick={handleDelete} /> 
     </section>
-    )
-  }
+  )
 }
 
 export default ExperienceSection;
